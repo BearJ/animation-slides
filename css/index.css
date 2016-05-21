@@ -1,0 +1,15 @@
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6{
+    font-weight: 400;
+}
+
+.flex-box{
+    display: flex;
+}
+.flex{
+    flex: 1;
+}
