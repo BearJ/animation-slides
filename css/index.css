@@ -3,13 +3,16 @@
 .reveal h3,
 .reveal h4,
 .reveal h5,
-.reveal h6{
-    font-weight: 400;
+.reveal h6 {
+  font-weight: normal;
 }
-
-.flex-box{
-    display: flex;
+.flex-box {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
-.flex{
-    flex: 1;
+.flex {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
