@@ -1,11 +1,65 @@
-.reveal {
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: normal;
-    }
+.flex{
+    flex: 1;
+}
+.tr{
+    text-align: right;
+}
+.hljs{
+    background-color: #111111;
 }
 .flex-box{
     display: flex;
 }
-.flex{
-    flex: 1;
+.flex-box_center{
+    align-items: center;
+}
+
+.reveal {
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: normal;
+    }
+    pre{
+        margin-top: 0;
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    .transition-demo{
+        .demo{
+            height: 350px;
+            img{
+                width: 0;
+                height: 0;
+            }
+            &:hover{
+                img{
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+        }
+        .demo-transition{
+            img{
+                transition: height .5s cubic-bezier(.83,.97,.05,1.2), width 1s .5s;
+            }
+        }
+    }
+    .animation-demo1{
+        img{
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+.bear-crazy{
+    animation: shake-crazy 100ms ease-in-out;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards; // none, backwards, both
+    &:hover{
+        animation-play-state: running;
+    }
 }

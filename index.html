@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
 		<link rel="stylesheet" href="lib/css/zenburn.css"><!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/shake.css">
+        <link rel="stylesheet" href="css/index.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -37,7 +38,7 @@
 						</p>
 					</section>
 					<section>
-						<img src="http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" width="175px"/>
+						<img src="images/avatar.jpg" width="175px"/>
 						<h2>BEARYAN</h2>
 						<p>WXG - 基础产品部 - 设计中心 - UI开发一组</p>
 					</section>
@@ -87,15 +88,15 @@
 					</section>
 					<section>
 						<div class="flex-box">
-							<div class="fragment flex">
-								<h2>关键帧动画</h2>
+							<div class="flex">
+								<h3>关键帧动画</h3>
 								<ul class="fragment">
 									<li>CSS Transition</li>
 									<li>CSS Animation</li>
 									<li>SVG Animation</li>
 								</ul>
 							</div>
-							<div class="fragment flex">
+							<div class="flex">
 								<h3>逐帧动画</h3>
 								<ul class="fragment">
 									<li>Canvas</li>
@@ -103,19 +104,150 @@
 							</div>
 						</div>
 					</section>
-				</section>
-				<section>
+
 					<section>
 						<h3>CSS Transition</h3>
+						<p class="fragment">过渡，转变</p>
 					</section>
+                    <section class="transition-demo">
+                        <div class="flex-box flex-box_center">
+                            <div class="flex demo">
+                                <img src="images/avatar.jpg" />
+                            </div>
+                            <div class="flex">
+					<pre><code class="hljs">
+.demo{
+    img{
+        width: 0;
+        height: 0;
+    }
+    &:hover{
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    }
+}
+					</code></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="transition-demo">
+                        <div class="demo demo-transition">
+                            <img src="images/avatar.jpg" />
+                        </div>
+                        <div class="fragment">
+					<pre><code class="hljs">
+img{
+    /* ... */
+    transition: height .5s cubic-bezier(.83,.97,.05,1.2), width 1s .5s;
+}
+					</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>transition事件</h3>
+                        <p>JS可通过监听DOM的transitionend事件来知道transition是否结束</p>
+                        <p>
+                            <img src="images/transitionEnd.png" />
+                        </p>
+                        <p>
+                            <a href="http://www.w3schools.com/jsref/event_transitionend.asp">w3schools.com</a>
+                        </p>
+                    </section>
+                    <section>
+                        <h4>
+                            Transition需要明确知道开始状态和结束状态的<span class="fragment highlight-red">具体数值</span>，才能计算出中间状态。<br><br>
+                            <span class="fragment">所以，如果高度是0px到auto的话，就不会产生动画效果。</span>
+                        </h4>
+                    </section>
+                    <section>
+                        <h4>transition的优点在于简单易用，但是它有几个很大的局限:</h4>
+                        <ul>
+                            <li class="fragment">Transition需要事件触发，所以没法在网页加载时自动发生。</li>
+                            <li class="fragment">Transition是一次性的，不能重复发生，除非一再触发。</li>
+                            <li class="fragment">Transition只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态。</li>
+                            <li class="fragment">一条Transition规则，只能定义一个属性的变化，不能涉及多个属性。</li>
+                        </ul>
+                        <p class="tr">——阮一峰</p>
+                    </section>
+
+
 					<section>
 						<h3>CSS Animation</h3>
 					</section>
+                    <section class="animation-demo1">
+                        <p>
+                            <img class="shake-horizontal" src="images/avatar.jpg"/>
+                            <img class="shake-vertical" src="images/avatar.jpg"/>
+                            <img class="shake-rotate" src="images/avatar.jpg"/>
+                        </p>
+                        <p>
+                            <img class="shake" src="images/avatar.jpg"/>
+                            <img class="shake-slow" src="images/avatar.jpg"/>
+                            <img class="shake-chunk" src="images/avatar.jpg"/>
+                        </p>
+                        <p>
+                            <img class="shake-opacity" src="images/avatar.jpg"/>
+                            <img class="shake-hard" src="images/avatar.jpg"/>
+                            <img class="shake-crazy" src="images/avatar.jpg"/>
+                        </p>
+                    </section>
+                    <section class="animation-demo2">
+                        <img class="bear-crazy" src="images/avatar.jpg" width="300px" height="300px" />
+                        <div class="fragment">
+					        <pre><code class="hljs">
+.bear-crazy{
+    animation: shake-crazy 100ms ease-in-out; // name duration timing-function
+    animation-iteration-count: infinite; // 播放次数
+    animation-direction: alternate; // 下个周期播放方向，normal
+    animation-play-state: paused; // 动画运行状态
+    animation-fill-mode: forwards; // 动画之外的状态，none, backwards, both
+    &:hover{
+        animation-play-state: running;
+    }
+}
+					        </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>keyframes</h3>
+                        <div>
+                            <pre><code class="hljs">
+@keyframes shake-crazy {
+    10% {
+        transform: translate(-10px, -19px) rotate(6deg);
+        opacity: 0.47
+    }
+    20% {
+        transform: translate(-11px, 10px) rotate(5deg);
+        opacity: 0.82
+    }
+    /* ... */
+    0%, 100% {
+        transform: translate(0, 0) rotate(0)
+    }
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>animation事件</h3>
+                        <ul>
+                            <li>animationstart - CSS 动画开始后触发</li>
+                            <li>animationiteration - CSS 动画重复播放时触发</li>
+                            <li>animationend - CSS 动画完成后触发</li>
+                        </ul>
+                        <p>
+                            <a href="http://www.w3schools.com/jsref/event_animationend.asp">w3schools.com</a>
+                        </p>
+                    </section>
+
+
 					<section>
 						<h3>SVG Animation</h3>
 					</section>
-				</section>
-				<section>
+
 					<section>
 						<h3>Canvas</h3>
 					</section>
