@@ -152,7 +152,7 @@ img{
                             <img src="images/transitionEnd.png" />
                         </p>
                         <p>
-                            <a href="http://www.w3schools.com/jsref/event_transitionend.asp">w3schools.com</a>
+                            <a href="http://www.w3schools.com/jsref/event_transitionend.asp" target="_blank">w3schools.com</a>
                         </p>
                     </section>
                     <section>
@@ -169,7 +169,7 @@ img{
                             <li class="fragment">Transition只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态。</li>
                             <li class="fragment">一条Transition规则，只能定义一个属性的变化，不能涉及多个属性。</li>
                         </ul>
-                        <p class="tr">——阮一峰</p>
+                        <p class="tr">——<a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html" target="_blank">阮一峰</a></p>
                     </section>
 
 
@@ -234,23 +234,281 @@ img{
                     <section>
                         <h3>animation事件</h3>
                         <ul>
-                            <li>animationstart - CSS 动画开始后触发</li>
+							<li>animationstart - CSS 动画开始后触发</li>
+							<li>animationend - CSS 动画完成后触发</li>
                             <li>animationiteration - CSS 动画重复播放时触发</li>
-                            <li>animationend - CSS 动画完成后触发</li>
                         </ul>
                         <p>
-                            <a href="http://www.w3schools.com/jsref/event_animationend.asp">w3schools.com</a>
+                            <a href="http://www.w3schools.com/jsref/event_animationend.asp" target="_blank">w3schools.com</a>
                         </p>
                     </section>
+					<section>
+						<h3>目前我们可以让动画元素：</h3>
+						<ul>
+							<li class="fragment">数值变化（top, width, …）</li>
+							<li class="fragment">属性变换（transform）</li>
+							<li class="fragment">颜色变化（background, color, …）</li>
+						</ul>
+						<br>
+						<br>
+						<br>
+						<h4 class="fragment">沿着运动路径运动？</h4>
+						<h4 class="fragment">画线动画？</h4>
+					</section>
 
 
 					<section>
 						<h3>SVG Animation</h3>
 					</section>
+					<section>
+						<svg xmlns="http://www.w3.org/2000/svg" width="360" height="200">
+							<text font-family="Microsoft Yahei" font-size="40" x="0" y="0" fill="#FFF">马
+								<animateTransform attributeName="transform" begin="0s" dur="3s"  type="scale" from="0.5" to="2" repeatCount="indefinite"/>
+								<animateMotion path="M10,80 q100,120 120,20 q140,-50 160,0" begin="0s" dur="3s" rotate="auto" repeatCount="indefinite"/>
+							</text>
+							<path d="M10,80 q100,120 120,20 q140,-50 160,0" stroke="#FFF" stroke-width="2" fill="none"/>
+						</svg>
+						<div class="fragment">
+							<pre><code class="hljs">
+<text>马
+	<animateTransform attributeName="transform" begin="0s" dur="3s"  type="scale" from="0.5" to="2" repeatCount="indefinite"></animateTransform>
+	<animateMotion path="M10,80 q100,120 120,20 q140,-50 160,0" begin="0s" dur="3s" rotate="auto" repeatCount="indefinite"></animateMotion>
+</text>
+<path d="M10,80 q100,120 120,20 q140,-50 160,0" stroke="#FFF" stroke-width="2" fill="none"></path>
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<a href="http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/" target="_blank">
+							《超级强大的SVG SMIL animation动画详解》
+						</a>
+						<p class="tr">——张鑫旭</p>
+					</section>
+
+					<section>
+						<h3>SVG 画线</h3>
+						<p><a href="#/2/18">可口可乐分享快乐128年</a></p>
+					</section>
+					<section>
+						<iframe data-src="http://web.socialab.com.cn/static/coke128/index.html" frameborder="0" width="375px" height="667px"></iframe>
+					</section>
+					<section class="dasharray-demo1">
+						<h3>stroke-dasharray</h3>
+						<p>用stroke-dasharray控制着path的实与虚。</p>
+						<div class="flex-box">
+							<div class="flex">
+								<svg width="200" height="200" viewPort="0 0 200 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+									<line stroke-dasharray="5, 5"              x1="10" y1="10" x2="190" y2="10" />
+									<line stroke-dasharray="5, 10"             x1="10" y1="30" x2="190" y2="30" />
+									<line stroke-dasharray="10, 5"             x1="10" y1="50" x2="190" y2="50" />
+									<line stroke-dasharray="5, 1"              x1="10" y1="70" x2="190" y2="70" />
+									<line stroke-dasharray="1, 5"              x1="10" y1="90" x2="190" y2="90" />
+									<line stroke-dasharray="0.9"               x1="10" y1="110" x2="190" y2="110" />
+									<line stroke-dasharray="15, 10, 5"         x1="10" y1="130" x2="190" y2="130" />
+									<line stroke-dasharray="15, 10, 5, 10"     x1="10" y1="150" x2="190" y2="150" />
+									<line stroke-dasharray="15, 10, 5, 10, 15" x1="10" y1="170" x2="190" y2="170" />
+									<line stroke-dasharray="5, 5, 1, 5"        x1="10" y1="190" x2="190" y2="190" />
+									<style>
+									line{
+										stroke: #FFFFFF;
+										stroke-width: 2;
+									}
+									</style>
+								</svg>
+							</div>
+							<div class="flex">
+								<pre><code class="hljs"><line stroke-dasharray="5, 5"></line>
+<line stroke-dasharray="5, 10"></line>
+<line stroke-dasharray="10, 5"></line>
+<line stroke-dasharray="5, 1"></line>
+<line stroke-dasharray="1, 5"></line>
+<line stroke-dasharray="0.9"></line>
+<line stroke-dasharray="15, 10, 5"></line>
+<line stroke-dasharray="15, 10, 5, 10"></line>
+<line stroke-dasharray="15, 10, 5, 10, 15"></line>
+<line stroke-dasharray="5, 5, 1, 5"></line></code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="dasharray-demo2">
+						<h3>stroke-dashoffset</h3>
+						<p>stroke-dashoffset定义着dash开始的位置</p>
+						<div class="flex-box">
+							<div class="flex">
+								<svg width="200" height="200" viewPort="0 0 200 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+									<line stroke-dashoffset="0"             x1="10" y1="10" x2="190" y2="10" />
+									<line stroke-dashoffset="1"             x1="10" y1="30" x2="190" y2="30" />
+									<line stroke-dashoffset="2"             x1="10" y1="50" x2="190" y2="50" />
+									<line stroke-dashoffset="3"              x1="10" y1="70" x2="190" y2="70" />
+									<line stroke-dashoffset="4"              x1="10" y1="90" x2="190" y2="90" />
+									<line stroke-dashoffset="5"               x1="10" y1="110" x2="190" y2="110" />
+									<line stroke-dashoffset="6"         x1="10" y1="130" x2="190" y2="130" />
+									<line stroke-dashoffset="7"     x1="10" y1="150" x2="190" y2="150" />
+									<line stroke-dashoffset="8" x1="10" y1="170" x2="190" y2="170" />
+									<line stroke-dashoffset="9"        x1="10" y1="190" x2="190" y2="190" />
+								</svg>
+							</div>
+							<div class="flex">
+								<pre><code class="hljs"><line stroke-dashoffset="0"></line>
+<line stroke-dashoffset="1"></line>
+<line stroke-dashoffset="2"></line>
+<line stroke-dashoffset="3"></line>
+<line stroke-dashoffset="4"></line>
+<line stroke-dashoffset="5"></line>
+<line stroke-dashoffset="6"></line>
+<line stroke-dashoffset="7"></line>
+<line stroke-dashoffset="8"></line>
+<line stroke-dashoffset="9"></line></code></pre>
+							</div>
+						</div>
+					</section>
+					<section class="dasharray-demo3">
+						<div>
+							<p>300 -> 0</p>
+							<svg width="900px" height="200px">
+								<line class="line1" x1="300" y1="50" x2="600" y2="50"></line>
+								<line class="line1-helper" x1="0" y1="150" x2="900" y2="150"></line>
+							</svg>
+						</div>
+						<div>
+							<p>300 -> 600</p>
+							<svg width="900px" height="200px">
+								<line class="line2" x1="300" y1="50" x2="600" y2="50"></line>
+								<line class="line2-helper" x1="0" y1="150" x2="900" y2="150"></line>
+							</svg>
+						</div>
+					</section>
+					<section>
+						<h3>为啥不用负数</h3>
+						<p>
+							<a href="http://bearj.github.io/sharing/html/ios_dashoffset_bug.html" target="_blank">
+								<img src="images/dashoffset_bug.png" height="300px" />
+							</a>
+						</p>
+					</section>
+					<section>
+						<a href="http://www.zhangxinxu.com/wordpress/2014/04/animateion-line-drawing-svg-path-%E5%8A%A8%E7%94%BB-%E8%B7%AF%E5%BE%84/" target="_blank">
+							《纯CSS实现帅气的SVG路径描边动画效果》
+						</a>
+						<p class="tr">——张鑫旭</p>
+					</section>
+
 
 					<section>
 						<h3>Canvas</h3>
 					</section>
+					<section>
+						<h4>一帧帧地显示，从而实现动画</h4>
+                        <p>window.requestAnimationFrame()</p>
+					</section>
+                    <section>
+                        <h3>API</h3>
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API" target="_blank">2D Canvas API</a></li>
+                            <li><a href="http://labs.gooengine.com/pearl-boy/" target="_blank">3D WebGL API</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <a href="http://www.apple.com/iphone/why-theres-iphone/" target="_blank">
+                            <img src="images/iphone.gif" />
+                        </a>
+                    </section>
+                    <section>
+                        <canvas class="" id="canvas" width="87" height="87"></canvas>
+                        <br><br>
+                        <pre><code class="hljs">
+path2d = new Path2D("M43.3,0.5c23.6 ...");
+ctx.setLineDash([pathLength]);
+ctx.lineDashOffset = pathLength;
+
+function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineDashOffset = parseInt(pathLength * (1 - easing.get(timeDur)));
+    ctx.stroke(path2d);
+    requestAnimationFrame(draw);
+}
+draw();
+                        </code></pre>
+                        <script type="text/javascript" src="lib/js/BezierEasing.js"></script>
+                        <script type="text/javascript">
+                            !function(){
+                                var canvas = document.getElementById("canvas"), ctx = canvas.getContext("2d");
+                                var pathLength = 269, path2d, startTime = + new Date(), animationDur = 1000; // 1000ms
+                                var easing = BezierEasing.css["ease-in-out"], timeout, timeDur;
+
+                                ctx.strokeStyle = "#4BBCF6";
+                                ctx.lineWidth = 1;
+
+                                ctx.setLineDash([pathLength]);
+                                ctx.lineDashOffset = pathLength;
+                                path2d = new Path2D("M43.3,0.5c23.6,0,42.8,19.1,42.8,42.8S66.9,86.2,43.3,86.2S0.5,67.1,0.5,43.3S19.8,0.5,43.3,0.5L43.3,0.5z");
+
+                                function draw(){
+                                    if(ctx.lineDashOffset <= 0){
+                                        clearTimeout(timeout);
+                                        timeout = setTimeout(function(){
+                                            ctx.lineDashOffset = pathLength;
+                                            startTime = + new Date();
+                                            requestAnimationFrame(draw);
+                                        }, 3000);
+                                        return;
+                                    }
+
+                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                    timeDur = + new Date() - startTime;
+                                    timeDur = (timeDur > animationDur ? animationDur : timeDur) / animationDur;
+                                    ctx.lineDashOffset =
+                                        parseInt(pathLength * (1 - easing.get(timeDur)));
+                                    ctx.stroke(path2d);
+                                    requestAnimationFrame(draw);
+                                }
+                                draw();
+                            }();
+                        </script>
+                    </section>
+                    <section>
+                        <h3>Canvas画线</h3>
+                        <ul>
+                            <li>
+                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Path2D" target="_blank">
+                                    Path2D类
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank">
+                                    Context2D.setLineDash()
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank">
+                                    Context2D.lineDashOffset
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Canvas图文粒子</h3>
+                        <ol>
+                            <li>先把文字/图片draw出来</li>
+                            <li>pixels = ctx.getImageData(x, y).data;</li>
+                            <li>这个pixels就是canvas里的所有像素点</li>
+                            <li>数组每4个值，代表着1个像素点的RGBA</li>
+                        </ol>
+                        <br><br>
+                        <pre><code class="hljs">
+pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
+                        </code></pre>
+                        <p>
+                            <a class="fragment" href="http://codepen.io/anon/pen/XXqzmb" target="_blank">
+                                别人家的示爱例子
+                            </a>
+                        </p>
+                        <p>
+                            <a class="fragment" href="http://www.jq22.com/demo/html5-canvas-side-text-141115160302/" target="_blank">
+                                更牛的例子
+                            </a>
+                        </p>
+                    </section>
 				</section>
 
 				<section>
@@ -260,6 +518,18 @@ img{
 				<section>
 					<h2>几个有趣例子</h2>
 				</section>
+
+                <section>
+                    <h2>链接</h2>
+                    <ul>
+                        <li><a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html" target="_blank">
+                            CSS动画简介, 阮一峰
+                        </a></li>
+                        <li><a href="http://matrix.h5jun.com/slide/show?id=117#/" target="_blank">
+                            前端动画原理与实现, 月影
+                        </a></li>
+                    </ul>
+                </section>
 			</div>
 
 		</div>

@@ -57,6 +57,41 @@
   width: 100px;
   height: 100px;
 }
+.reveal .dasharray-demo1 line {
+  stroke: #FFFFFF;
+  stroke-width: 2;
+}
+.reveal .dasharray-demo2 line {
+  stroke: #FFFFFF;
+  stroke-width: 2;
+  stroke-dasharray: 10;
+}
+.reveal .dasharray-demo3 svg:hover .line1 {
+  stroke-dashoffset: 0;
+}
+.reveal .dasharray-demo3 svg:hover .line1-helper {
+  stroke-dashoffset: 300;
+}
+.reveal .dasharray-demo3 svg:hover .line2 {
+  stroke-dashoffset: 600;
+}
+.reveal .dasharray-demo3 svg:hover .line2-helper {
+  stroke-dashoffset: 900;
+}
+.reveal .dasharray-demo3 line {
+  stroke: #FFFFFF;
+  stroke-width: 2;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.reveal .dasharray-demo3 .line1-helper {
+  stroke-dashoffset: 600;
+}
+.reveal .dasharray-demo3 .line2-helper {
+  stroke-dashoffset: 600;
+}
 .bear-crazy {
   -webkit-animation: shake-crazy 100ms ease-in-out;
           animation: shake-crazy 100ms ease-in-out;
