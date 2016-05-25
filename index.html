@@ -243,7 +243,7 @@ img{
                         </p>
                     </section>
 					<section>
-						<h3>目前我们可以让动画元素：</h3>
+						<h3>通过Transition和Animation我们可以实现：</h3>
 						<ul>
 							<li class="fragment">数值变化（top, width, …）</li>
 							<li class="fragment">属性变换（transform）</li>
@@ -413,6 +413,26 @@ img{
                             <img src="images/iphone.gif" />
                         </a>
                     </section>
+					<section>
+						<h3>Canvas画线</h3>
+						<ul>
+							<li>
+								<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Path2D" target="_blank">
+									Path2D类
+								</a>
+							</li>
+							<li>
+								<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank">
+									Context2D.setLineDash()
+								</a>
+							</li>
+							<li>
+								<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank">
+									Context2D.lineDashOffset
+								</a>
+							</li>
+						</ul>
+					</section>
                     <section>
                         <canvas class="" id="canvas" width="87" height="87"></canvas>
                         <br><br>
@@ -436,7 +456,7 @@ draw();
                                 var pathLength = 269, path2d, startTime = + new Date(), animationDur = 1000; // 1000ms
                                 var easing = BezierEasing.css["ease-in-out"], timeout, timeDur;
 
-                                ctx.strokeStyle = "#4BBCF6";
+                                ctx.strokeStyle = "#FFF";
                                 ctx.lineWidth = 1;
 
                                 ctx.setLineDash([pathLength]);
@@ -450,7 +470,7 @@ draw();
                                             ctx.lineDashOffset = pathLength;
                                             startTime = + new Date();
                                             requestAnimationFrame(draw);
-                                        }, 3000);
+                                        }, 2000);
                                         return;
                                     }
 
@@ -467,48 +487,33 @@ draw();
                         </script>
                     </section>
                     <section>
-                        <h3>Canvas画线</h3>
-                        <ul>
-                            <li>
-                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Path2D" target="_blank">
-                                    Path2D类
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank">
-                                    Context2D.setLineDash()
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank">
-                                    Context2D.lineDashOffset
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
                         <h3>Canvas图文粒子</h3>
-                        <ol>
-                            <li>先把文字/图片draw出来</li>
-                            <li>pixels = ctx.getImageData(x, y).data;</li>
-                            <li>这个pixels就是canvas里的所有像素点</li>
-                            <li>数组每4个值，代表着1个像素点的RGBA</li>
-                        </ol>
-                        <br><br>
-                        <pre><code class="hljs">
+						<p>
+							<a class="fragment" href="http://codepen.io/anon/pen/XXqzmb" target="_blank">
+								周磊的示爱
+							</a>
+						</p>
+                    </section>
+					<section>
+						<h3>Canvas图文粒子</h3>
+						<div>
+							<ul>
+								<li class="fragment">先把文字/图片draw出来</li>
+								<li class="fragment">pixels = ctx.getImageData(x, y).data;</li>
+								<li class="fragment">这个pixels就是canvas里的所有像素点</li>
+								<li class="fragment">数组每4个值，代表着1个像素点的RGBA</li>
+							</ul>
+							<br><br>
+                        <pre class="fragment"><code class="hljs">
 pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
                         </code></pre>
-                        <p>
-                            <a class="fragment" href="http://codepen.io/anon/pen/XXqzmb" target="_blank">
-								周磊的示爱
-                            </a>
-                        </p>
-                        <p>
-                            <a class="fragment" href="http://www.jq22.com/demo/html5-canvas-side-text-141115160302/" target="_blank">
-								canvas-side-text
-                            </a>
-                        </p>
-                    </section>
+						</div>
+						<p>
+							<a class="fragment" href="http://www.jq22.com/demo/html5-canvas-side-text-141115160302/" target="_blank">
+								酷炫一点的例子
+							</a>
+						</p>
+					</section>
 					<section>
 						<h3>从动画角度来说，哪个更好？</h3>
 						<p class="fragment">个人偏向第二个，因为第二个感觉更生动</p>
@@ -549,7 +554,7 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 						<img src="images/principles/stretch-1.gif" />
 					</section>
 					<section>
-						<img src="images/principles/stretch-2.gif" width="400px" />
+						<img src="images/principles/stretch-2.gif" />
 					</section>
 					<section>
 						<img src="images/principles/stretch-3.gif" width="400px" />
@@ -660,10 +665,66 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 							</a>
 						</h2>
 					</section>
+					<section>
+						<div class="flex-box">
+							<div class="flex">
+								<ul>
+									<li>EXAGGERATION 夸张</li>
+									<li>SQUASH & STRETCH 挤压 & 拉伸</li>
+									<li class="fragment highlight-green">ANTICIPATION 预备动作</li>
+									<li class="fragment highlight-green">SLOW IN & SLOW OUT 慢进 & 慢出</li>
+									<li>ARCS 弧形运动轨迹</li>
+									<li>FOLLOW THROUGH & OVERLAPPING 动作惯性 & 动作重叠</li>
+								</ul>
+							</div>
+							<div class="flex">
+								<ul>
+									<li>APPEAL 吸引力</li>
+									<li class="fragment highlight-green">SECONDARY ACTION 附属动作</li>
+									<li class="fragment highlight-green">STAGING 表演及呈像方式</li>
+									<li>STRAIGHT AHEAD & POSE TO POSE 逐帧画法 & 关键帧画法</li>
+									<li>TIMING 时间控制</li>
+									<li>SOLID DRAWINGS 纯熟的手绘技巧</li>
+								</ul>
+							</div>
+						</div>
+					</section>
 				</section>
 
 				<section>
-					<h2>几个有趣例子</h2>
+					<section>
+						<h2>几个有趣的H5</h2>
+					</section>
+					<section>
+						<a target="_blank" href="http://drose6.adidasevent.com/">
+							<img src="images/demo/demo-staging.png" width="350px" />
+						</a>
+						<p class="fragment">舞台展现非常给力</p>
+					</section>
+					<section>
+						<a target="_blank" href="http://evt.dianping.com/midas/160108-loreal/index.html">
+							<img src="images/demo/demo-sprite.png" width="350px" />
+						</a>
+						<p class="fragment">逐帧画法，完美实现你想要的效果</p>
+					</section>
+					<section>
+						<a target="_blank" href="http://go.163.com/2015/1106/jd/">
+							<img src="images/demo/demo-panorama.png" width="350px" />
+						</a>
+						<p class="fragment">实现全景 <a target="_blank" href="https://github.com/humu2009/Pano.js/tree/master">pano.js</a></p>
+					</section>
+					<section>
+						<a target="_blank" href="http://qipai.qq.com/act/a20151210opening/?ADTAG=tgi.relay.wx.Message">
+							<img src="images/demo/demo-flash.png" width="350px" />
+						</a>
+						<p class="fragment">Flash转Canvas</p>
+					</section>
+					<section>
+						<a target="_blank" href="http://sneakerslam.nike.com.cn/#explore">
+							<img src="images/demo/demo-3d.png" width="350px" />
+						</a>
+						<p class="fragment">Three.js</p>
+					</section>
 				</section>
 
                 <section>
@@ -696,8 +757,27 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 						<li><a href="http://easings.net/zh-cn#" target="_blank">
 							easing函数速查表
 						</a></li>
+						<li><a href="https://github.com/danro/easing-js" target="_blank">
+							easing.js
+						</a></li>
                     </ul>
                 </section>
+
+				<section>
+					<h2>较受欢迎的库</h2>
+					<dl>
+						<dt>SVG/DOM</dt>
+						<dd><a target="_blank" href="http://julian.com/research/velocity/">Velocity.js</a></dd>
+						<dd><a target="_blank" href="http://svgjs.com/">SVG.JS</a></dd>
+						<dd><a target="_blank" href="http://snapsvg.io/">Snap.Svg</a></dd>
+
+						<dt>Canvas</dt>
+						<dd><a target="_blank" href="http://www.createjs.com/easeljs">Create.js</a></dd>
+						<dd><a target="_blank" href="http://paperjs.org/">Paper.js</a></dd>
+						<dd><a target="_blank" href="http://threejs.org/">three.js</a></dd>
+						<dd><a target="_blank" href="http://phaser.io/">Phaser.js</a></dd>
+					</dl>
+				</section>
 
 				<section>
 					<h2>Q & A</h2>
