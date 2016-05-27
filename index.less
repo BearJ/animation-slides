@@ -65,35 +65,40 @@
             stroke-dasharray: 10;
         }
     }
+    @dashLength: 100;
     .dasharray-demo3{
-        svg{
-            &:hover{
-                .line1{
-                    stroke-dashoffset: 0;
-                }
-                .line1-helper{
-                    stroke-dashoffset: 300;
-                }
-                .line2{
-                    stroke-dashoffset: 600;
-                }
-                .line2-helper{
-                    stroke-dashoffset: 900;
-                }
-            }
-        }
         line{
             stroke: #FFFFFF;
             stroke-width: 2;
-            stroke-dasharray: 300;
-            stroke-dashoffset: 300;
+            stroke-dasharray: @dashLength;
             transition: .5s ease-in-out;
         }
         .line1-helper{
-            stroke-dashoffset: 600;
+            stroke-dashoffset: @dashLength * 2;
         }
         .line2-helper{
-            stroke-dashoffset: 600;
+            stroke-dashoffset: 0;
+        }
+        .wrap{
+            position: relative;
+            &:hover{
+                .line1-helper{
+                    stroke-dashoffset: @dashLength;
+                }
+                .line2-helper{
+                    stroke-dashoffset: 100;
+                }
+            }
+        }
+        .window{
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            left: 50%;
+            top: 0;
+            margin-left: -50px;
+            background-color: #777;
+            z-index: -1;
         }
     }
 }

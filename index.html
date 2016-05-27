@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>动画</title>
+		<title>生动的动画</title>
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -32,9 +32,9 @@
 			<div class="slides">
 				<section>
 					<section>
-						<h1>动画</h1>
+						<h1>生动的动画</h1>
 						<p>
-							<small>2016-06-02</small>
+							<small>2016-06-06</small>
 						</p>
 					</section>
 					<section>
@@ -64,6 +64,12 @@
 						<h2>如何让静止的画面动起来？</h2>
 					</section>
 					<section>
+						<h3>定义每一帧（逐帧动画）</h3>
+						<span class="fragment">
+							<img src="images/what/frames.gif"/>
+						</span>
+					</section>
+					<section>
 						<h3>定义关键帧（关键帧动画）</h3>
 						<span class="fragment">
 							<img src="images/what/flash.png" />
@@ -72,12 +78,6 @@
 							<a href="http://weibo.com/2123664205/BsU5VfGC6?type=comment#_rnd1463816701470" target="_blank">
 								<img src="images/what/pig.gif"/>
 							</a>
-						</span>
-					</section>
-					<section>
-						<h3>定义每一帧（逐帧动画）</h3>
-						<span class="fragment">
-							<img src="images/what/frames.gif"/>
 						</span>
 					</section>
 				</section>
@@ -363,18 +363,19 @@ img{
 						</div>
 					</section>
 					<section class="dasharray-demo3">
-						<div>
-							<p>300 -> 0</p>
-							<svg width="900px" height="200px">
-								<line class="line1" x1="300" y1="50" x2="600" y2="50"></line>
-								<line class="line1-helper" x1="0" y1="150" x2="900" y2="150"></line>
+						<p>offset : 100 -> 0</p>
+						<div class="wrap">
+							<div class="window"></div>
+							<svg width="700px" height="200px">
+								<line class="line1-helper" x1="200" y1="100" x2="700" y2="100"></line>
 							</svg>
 						</div>
-						<div>
-							<p>300 -> 600</p>
-							<svg width="900px" height="200px">
-								<line class="line2" x1="300" y1="50" x2="600" y2="50"></line>
-								<line class="line2-helper" x1="0" y1="150" x2="900" y2="150"></line>
+
+						<p>offset : 100 -> 200</p>
+						<div class="wrap">
+							<div class="window"></div>
+							<svg width="700px" height="200px">
+								<line class="line2-helper" x1="0" y1="100" x2="500" y2="100"></line>
 							</svg>
 						</div>
 					</section>
@@ -537,9 +538,6 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 					</section>
 
 					<section>
-						<h2>内因</h2>
-					</section>
-					<section>
 						<h3>EXAGGERATION<br>夸张</h3>
 						<p><img src="images/principles/pic10.gif" /></p>
 						<p class="fragment">利用挤压和伸展的效果、夸大的肢体动作、或是以加快或放慢动作来加乘角色的情绪及反应，这是动画有别于一般表演的重要元素。</p>
@@ -612,9 +610,6 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 					</section>
 
 
-					<section>
-						<h2>外因</h2>
-					</section>
 					<section>
 						<h3>SECONDARY ACTION<br>附属动作</h3>
 						<p><img src="images/principles/pic8.gif" /></p>
@@ -693,7 +688,7 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 
 				<section>
 					<section>
-						<h2>几个有趣的H5</h2>
+						<h2>观赏</h2>
 					</section>
 					<section>
 						<a target="_blank" href="http://drose6.adidasevent.com/">
@@ -706,24 +701,6 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
 							<img src="images/demo/demo-sprite.png" width="350px" />
 						</a>
 						<p class="fragment">逐帧画法，完美实现你想要的效果</p>
-					</section>
-					<section>
-						<a target="_blank" href="http://go.163.com/2015/1106/jd/">
-							<img src="images/demo/demo-panorama.png" width="350px" />
-						</a>
-						<p class="fragment">实现全景 <a target="_blank" href="https://github.com/humu2009/Pano.js/tree/master">pano.js</a></p>
-					</section>
-					<section>
-						<a target="_blank" href="http://qipai.qq.com/act/a20151210opening/?ADTAG=tgi.relay.wx.Message">
-							<img src="images/demo/demo-flash.png" width="350px" />
-						</a>
-						<p class="fragment">Flash转Canvas</p>
-					</section>
-					<section>
-						<a target="_blank" href="http://sneakerslam.nike.com.cn/#explore">
-							<img src="images/demo/demo-3d.png" width="350px" />
-						</a>
-						<p class="fragment">Three.js</p>
 					</section>
 				</section>
 
