@@ -4,6 +4,9 @@
       -ms-flex: 1;
           flex: 1;
 }
+.tl {
+  text-align: left;
+}
 .tr {
   text-align: right;
 }
@@ -37,25 +40,37 @@
   width: auto;
 }
 .reveal .transition-demo .demo {
-  height: 350px;
+  position: relative;
+  text-align: left;
+  height: 250px;
 }
 .reveal .transition-demo .demo img {
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 0;
+  z-index: 1;
+  -webkit-transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+  transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+  transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+  transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s, -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
 }
 .reveal .transition-demo .demo:hover img {
-  width: 300px;
-  height: 300px;
-}
-.reveal .transition-demo .demo-transition img {
-  -webkit-transition: height 0.5s cubic-bezier(0.83, 0.97, 0.05, 1.2), width 1s 0.5s;
-  transition: height 0.5s cubic-bezier(0.83, 0.97, 0.05, 1.2), width 1s 0.5s;
+  left: 700px;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 .reveal .animation-demo1 img {
   margin-left: 30px;
   margin-right: 30px;
   width: 100px;
   height: 100px;
+}
+.reveal .animation-demo2 img {
+  width: 100px;
+  height: 100px;
+  -webkit-animation: animation-demo2 2s cubic-bezier(0.86, 0, 0.07, 1) infinite alternate;
+          animation: animation-demo2 2s cubic-bezier(0.86, 0, 0.07, 1) infinite alternate;
 }
 .reveal .dasharray-demo1 line {
   stroke: #FFFFFF;
@@ -103,14 +118,36 @@
           animation: shake-crazy 100ms ease-in-out;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-.bear-crazy:hover {
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
+@-webkit-keyframes animation-demo2 {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  50% {
+    -webkit-transform: translateX(430px);
+            transform: translateX(430px);
+  }
+  100% {
+    -webkit-transform: translateX(850px);
+            transform: translateX(850px);
+  }
+}
+@keyframes animation-demo2 {
+  0% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  50% {
+    -webkit-transform: translateX(430px);
+            transform: translateX(430px);
+  }
+  100% {
+    -webkit-transform: translateX(850px);
+            transform: translateX(850px);
+  }
 }
