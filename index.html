@@ -178,15 +178,15 @@
                     <section>
                         <img src="images/principles/anticipation-2.jpg" />
                     </section>
+                    <section>
+                        <img src="images/principles/mouse.gif" alt=""/>
+                    </section>
 
                     <!--吸引力-->
                     <section>
                         <h3>APPEAL<br>吸引力</h3>
                         <p><img src="images/principles/pic12.gif" /></p>
                         <p class="fragment">当设计角色时，能够以造型或独特的姿态让观众直觉角色的属性，藉<span class="fragment highlight-green">以提高观众对于角色的印象</span>，例如高矮胖瘦可分别代表不同个性的角色。</p>
-                    </section>
-                    <section>
-                        <img src="images/principles/mouse.gif" alt=""/>
                     </section>
 
                     <section>
@@ -212,16 +212,6 @@
                         <h3>STAGING<br>表演及呈像方式</h3>
                         <p><img src="images/principles/pic2.gif" /></p>
                         <p class="fragment">角色的仪态、及表演方式，配合适当的摄影机运动，<br>使能够有效的<span class="fragment highlight-green">表达角色的特性及故事中的讯息</span>。</p>
-                    </section>
-                    <section>
-                        <p>
-                            “所谓staging就是要清晰的表现动作的意图使之容易理解。
-                            Staging重要的检测方法是‘动作剪影’。
-                            物体或者角色的动作应该富有表现力，甚至只需要通过黑白影响对比就可以表达动作意图。
-                            如果你不能通过动作剪影来理解某一个动作的意图，那这个动作的幅度就不够，或者意图就不够明显，可以考虑修改它了。
-                            譬如如果你想表现一个人很沮丧很悲伤的状况，可以设计角色做出弓着背，双手垂在身体两侧前方，镜头采用俯视的角度等等。”
-                        </p>
-                        <p class="tr">——WitUHunt</p>
                     </section>
 
                     <!--逐帧/关键帧-->
@@ -253,13 +243,13 @@
 
                     <section>
                         <h3>符合现实</h3>
-                        <p><small>慢进慢出、弧形运动、惯性与重叠</small></p>
+                        <p><small><span class="fragment highlight-green">慢进慢出</span>、<span class="fragment highlight-green">弧形运动</span>、<span class="fragment highlight-green">惯性与重叠</span></small></p>
                         <br>
                         <h3>强调</h3>
-                        <p><small>夸张、挤压拉伸、预备动作、吸引力</small></p>
+                        <p><small>夸张、<span class="fragment highlight-green">挤压拉伸</span>、<span class="fragment highlight-green">预备动作</span>、吸引力</small></p>
                         <br>
                         <h3>外界因素</h3>
-                        <p><small>附属动作、呈像方式、逐帧\关键帧画法、时间控制、手绘技巧</small></p>
+                        <p><small>附属动作、呈像方式、<span class="fragment highlight-green">逐帧\关键帧画法</span>、<span class="fragment highlight-green">时间控制</span>、手绘技巧</small></p>
                     </section>
                 </section>
 
@@ -290,8 +280,8 @@
 .demo img{
     left: 0;
     transition:
-        left .5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-        transform .5s cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s
+        left .5s <span class="fragment highlight-green">cubic-bezier(.77, .01, .16, 1.53)</span>,
+        transform .5s <span class="fragment highlight-green">cubic-bezier(0.68, -0.55, 0.265, 1.55)</span> 1s
     ;
 }
 .demo:hover img{
@@ -308,10 +298,13 @@
                         <p>时间函数</p>
                     </section>
                     <section>
+                        <iframe src="http://cubic-bezier.com/#.68,-0.55,.26,1.55" frameborder="0" width="100%" height="600px"></iframe>
+                    </section>
+                    <section>
                         <iframe src="http://easings.net/zh-cn#" frameborder="0" width="100%" height="600px"></iframe>
                     </section>
                     <section>
-                        <h4>但Transition并不适用于做动画</h4>
+                        <h4>Transition并不适用于做动画</h4>
                         <ul>
                             <li class="fragment">需要事件触发</li>
                             <li class="fragment">一次性，不能自动重复</li>
@@ -346,7 +339,7 @@
                         <div>
                             <pre><code class="hljs">
 .bear-crazy{
-    animation: bear-crazy 100ms ease-in-out; // name duration timing-function
+    animation: bear-crazy 100ms <span class="fragment highlight-green">ease-in-out</span>; // name duration timing-function
     animation-iteration-count: infinite; // 播放次数
     animation-direction: alternate; // 下个周期播放方向，normal
 }
@@ -393,19 +386,6 @@ img{
                             </code></pre>
                         </div>
                     </section>
-                    <section>
-                        <h3>通过Transition和Animation我们可以实现：</h3>
-                        <ul>
-                            <li class="fragment">数值变化（top, width, …）</li>
-                            <li class="fragment">属性变换（transform）</li>
-                            <li class="fragment">颜色变化（background, color, …）</li>
-                        </ul>
-                        <br>
-                        <br>
-                        <br>
-                        <h4 class="fragment">沿着运动路径运动？</h4>
-                        <h4 class="fragment">画线动画？</h4>
-                    </section>
 
 
                     <section>
@@ -444,9 +424,9 @@ img{
         attributeName="transform" type="rotate"
         from="0" to="360"
         dur="3s" repeatCount="indefinite"
-        calcMode="spline" keyTimes="0;1" keySplines="0.86 0 0.07 1" // timing-function
+        <span class="fragment highlight-green">calcMode="spline" keyTimes="0;1" keySplines="0.86 0 0.07 1"</span> // timing-function
     /&gt;
-    &lt;animateMotion
+    &lt;<span class="fragment highlight-green">animateMotion</span>
         path="M318.0094050899985......"
         dur="3s" repeatCount="indefinite"
         calcMode="spline" keyTimes="0;1" keySplines="0.86 0 0.07 1"
@@ -563,12 +543,6 @@ img{
                             </a>
                         </p>
                     </section>
-                    <section>
-                        <a href="http://www.zhangxinxu.com/wordpress/2014/04/animateion-line-drawing-svg-path-%E5%8A%A8%E7%94%BB-%E8%B7%AF%E5%BE%84/" target="_blank">
-                            《纯CSS实现帅气的SVG路径描边动画效果》
-                        </a>
-                        <p class="tr">——张鑫旭</p>
-                    </section>
 
 
                     <section>
@@ -618,14 +592,14 @@ img{
                     <section>
                         <canvas class="" id="canvas" width="330" height="320"></canvas>
                         <br><br>
-                        <pre><code class="hljs">var easingFunc = easing.easeInOutCubic; // timing-function
+                        <pre><code class="hljs"><span class="fragment highlight-green">var easingFunc = easing.easeInOutCubic;</span> // timing-function
 var path2d = new Path2D("M165.50942211 ...");
 ctx.setLineDash([pathLength]);
 ctx.lineDashOffset = pathLength;
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.lineDashOffset = parseInt(pathLength * (1 - easingFunc(timePos)));
+    ctx.lineDashOffset = parseInt(pathLength * (1 - <span class="fragment highlight-green">easingFunc(timePos)</span>));
     ctx.stroke(path2d);
     requestAnimationFrame(draw);
 }
@@ -667,6 +641,7 @@ draw();</code></pre>
                             }();
                         </script>
                     </section>
+                    <!--
                     <section>
                         <h3>Canvas 图文粒子</h3>
                         <p>
@@ -675,7 +650,6 @@ draw();</code></pre>
                             </a>
                         </p>
                     </section>
-
                     <section>
                         <div>
                             <ul>
@@ -690,18 +664,22 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
                         </code></pre>
                         </div>
                     </section>
+                    -->
 
                     <section>
                         <h3>JS Animation</h3>
                     </section>
                     <section>
+                        <h3>实现更复杂的timing-function</h3>
+                    </section>
+                    <section>
                         <img src="images/mojs/mo-bounce.gif" />
                     </section>
                     <section>
-                        <img src="images/mojs/mo-bounce-src.png" />
+                        <img src="images/mojs/mo-easing.gif" />
                     </section>
                     <section>
-                        <img src="images/mojs/mo-easing.gif" />
+                        <img src="images/mojs/mo-bounce-src.png" />
                     </section>
                     <section>
                         <img src="images/mojs/mo-easing-src.png" />
@@ -712,22 +690,11 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
                             mo.js
                         </a>
                     </section>
-
-                    <section>
-                        <h3>符合现实</h3>
-                        <p><small>慢进慢出、弧形运动、惯性与重叠</small></p>
-                        <br>
-                        <h3>强调</h3>
-                        <p><small>夸张、挤压拉伸、预备动作、吸引力</small></p>
-                        <br>
-                        <h3>外界因素</h3>
-                        <p><small>附属动作、呈像方式、逐帧\关键帧画法、时间控制、手绘技巧</small></p>
-                    </section>
                 </section>
 
                 <section>
                     <section>
-                        <h2>案例</h2>
+                        <h2>欣赏</h2>
                     </section>
                     <section>
                         <a target="_blank" href="http://61.142.65.166/vipstyle/mobile/client/vipact/freshmanguide/html/index.html">
@@ -829,7 +796,6 @@ pixels = [0, 0, 0, 1,   255, 0, 0, 1,   255, 255, 255, 0]
                     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'plugin/zoom-js/zoom.js', async: true },
                     { src: 'plugin/notes/notes.js', async: true }
                 ]
