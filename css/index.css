@@ -50,10 +50,10 @@
   height: 200px;
   left: 0;
   z-index: 1;
-  -webkit-transition: left 0.5s cubic-bezier(0.77, 0.01, 0.16, 1.53), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
-  transition: left 0.5s cubic-bezier(0.77, 0.01, 0.16, 1.53), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
-  transition: left 0.5s cubic-bezier(0.77, 0.01, 0.16, 1.53), transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
-  transition: left 0.5s cubic-bezier(0.77, 0.01, 0.16, 1.53), transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s, -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  -webkit-transition: left 0.5s ease-in-out, -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  transition: left 0.5s ease-in-out, -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  transition: left 0.5s ease-in-out, transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+  transition: left 0.5s ease-in-out, transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s, -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
 }
 .reveal .transition-demo .demo:hover img {
   left: 700px;
